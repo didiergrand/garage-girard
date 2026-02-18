@@ -170,14 +170,9 @@
 .container-small {
   max-width: 800px;
 }
-/* Layout en colonnes pour le contenu principal */
-.content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 30px;
-  align-items: start;
+#right-sidebar {
+  display: flex;
 }
-
 #news,
 .content-wrapper > article,
 .content-wrapper > div:not(#right-sidebar) {
