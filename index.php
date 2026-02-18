@@ -87,9 +87,6 @@ get_header();
 						<?php
 					endif;
 					?>
-					<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
-						<?php dynamic_sidebar( 'sidebar-footer' ); ?>
-					<?php endif; ?>
 					</div>
 				</div>
 			</div>

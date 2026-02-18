@@ -48,10 +48,6 @@ if ( have_posts() ) {
 
 				endif;
 			?>
-			<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
-				<?php dynamic_sidebar( 'sidebar-footer' ); ?>
-			<?php endif; ?>
-
 		</div>
 	</main><!-- #main -->
 

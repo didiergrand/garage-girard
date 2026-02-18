@@ -31,9 +31,6 @@ endif;
 
 				endwhile; // End of the loop.
 				?>
-				<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
-					<?php dynamic_sidebar( 'sidebar-footer' ); ?>
-				<?php endif; ?>
 		</div>
 	</main><!-- #main -->
 
