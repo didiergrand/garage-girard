@@ -87,19 +87,15 @@ get_header();
 						<?php
 					endif;
 					?>
+					<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
+						<?php dynamic_sidebar( 'sidebar-footer' ); ?>
+					<?php endif; ?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</main><!-- #main -->
 
-	<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
-		<div class="footer-widgets">
-			<div class="container">
-				<?php dynamic_sidebar( 'sidebar-footer' ); ?>
-			</div>
-		</div>
-	<?php endif; ?>
 
 <?php
 get_footer();

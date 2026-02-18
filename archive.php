@@ -46,18 +46,14 @@ if ( have_posts() ) {
 
 				get_template_part( 'template-parts/content', 'none' );
 
-			endif;
+				endif;
 			?>
+			<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
+				<?php dynamic_sidebar( 'sidebar-footer' ); ?>
+			<?php endif; ?>
+
 		</div>
 	</main><!-- #main -->
-
-	<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
-		<div class="footer-widgets">
-			<div class="container">
-				<?php dynamic_sidebar( 'sidebar-footer' ); ?>
-			</div>
-		</div>
-	<?php endif; ?>
 
 <?php
 get_footer();
