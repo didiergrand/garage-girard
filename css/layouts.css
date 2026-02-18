@@ -9,11 +9,12 @@
   grid-template-columns: 25% auto;
   position: relative;
   padding: 0 20px 0 50px;
+  height: 150px;
 }
 
 .custom-logo {
-  padding: 20px 0 0;
-  width: 200px;
+  padding:0;
+  width: 300px;
   max-width: 100%;
   margin: 0 20px;
   z-index: 1;
