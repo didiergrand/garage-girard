@@ -12,11 +12,6 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-	<div class="container">
-		<?php 
-dynamic_sidebar( 'sidebar-footer' );
-?>
-	</div>
 	<div class="site-info">
 		<div class="container">
 		<!--<span class="sep"> | </span>-->
