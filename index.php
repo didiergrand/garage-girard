@@ -43,7 +43,6 @@ get_header();
 					<?php dynamic_sidebar( 'sidebar-right' );?>
 				</div>
 				<div id="news">
-					<h2>Actualités</h2>
 					<div class="news-content">
 					<?php
 					if ( have_posts() ) :
