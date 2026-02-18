@@ -37,11 +37,12 @@ h6 a {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 32px;
+  line-height: 1.25;
 }
-
 h3 {
-  font-size: 21px;
+  font-size: 28px;
+  line-height: 1.35;
 }
 h4 {
   font-size: 24px;
