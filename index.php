@@ -39,6 +39,9 @@ get_header();
 	<main id="primary" class="site-main">
 		<div class="container">
 			<div class="content-wrapper">
+				<div id="right-sidebar">
+					<?php dynamic_sidebar( 'sidebar-right' );?>
+				</div>
 				<div id="news">
 					<h2>Actualités</h2>
 					<div class="news-content">
@@ -86,9 +89,6 @@ get_header();
 					endif;
 					?>
 					</div>
-				</div>
-				<div id="right-sidebar">
-					<?php dynamic_sidebar( 'sidebar-right' );?>
 				</div>
 			</div>
 		</div>

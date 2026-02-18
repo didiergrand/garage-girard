@@ -54,6 +54,9 @@
   justify-content: center;
   overflow: hidden;
 }
+.home .header-image{
+  min-height: 700px;
+}
 
 .header-image img {
   position: absolute;
