@@ -79,20 +79,22 @@ function garage_girard_get_header_image( $post_id = null ) {
  *
  * @param string $title The title to display.
  */
-function garage_girard_display_header_image( $title = '' ) {
+function garage_girard_display_header_image( $title = '', $show_title = true ) {
 	$image = garage_girard_get_header_image();
 	?>
 	<div class="header-image">
 		<div class="header-image-bg" style="background-image: url(<?php echo esc_url( $image ); ?>);"></div>
-		<div class="container">
-			<div class="header-image-content">
-				<?php if ( $title ) : ?>
-					<h1 class="entry-title"><?php echo wp_kses_post( $title ); ?></h1>
-				<?php else : ?>
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-				<?php endif; ?>
+		<?php if ( $show_title ) : ?>
+			<div class="container">
+				<div class="header-image-content">
+					<?php if ( $title ) : ?>
+						<h1 class="entry-title"><?php echo wp_kses_post( $title ); ?></h1>
+					<?php else : ?>
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					<?php endif; ?>
+				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 	</div>
 	<?php
 }

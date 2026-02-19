@@ -20,11 +20,6 @@
 	<div class="home-post__content">
 		<?php the_title( '<h2><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-			<div class="entry-meta">
-				<?php garage_girard_posted_on(); ?>
-			</div>
-		<?php endif; ?>
 
 		<div class="entry-summary">
 			<?php the_content(); ?>
