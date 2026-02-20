@@ -23,7 +23,7 @@
 
 .entry-title {
   max-width: 1400px;
-  margin: 2rem auto;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 767px) {
