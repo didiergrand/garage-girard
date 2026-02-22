@@ -5,8 +5,8 @@
 #masthead {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 25% auto;
-  grid-template-columns: 25% auto;
+  -ms-grid-columns: 300px auto;
+  grid-template-columns: 300px auto;
   position: relative;
   padding: 0 20px 0 50px;
   height: 150px;
@@ -28,11 +28,6 @@
 
 @media screen and (max-width: 767px) {
   #masthead {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 300px auto;
-    grid-template-columns: 300px auto;
-    position: relative;
     padding-bottom: 0;
     padding: 0 10px 10px 0;
   }
