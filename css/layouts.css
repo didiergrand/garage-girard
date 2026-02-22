@@ -444,3 +444,6 @@ article {
   justify-content: center;
   align-items: center;
 }
+.current_page_item a {
+  color: var(--link-color) !important;
+}
