@@ -30,15 +30,15 @@
   #masthead {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 200px auto;
-    grid-template-columns: 200px auto;
+    -ms-grid-columns: 300px auto;
+    grid-template-columns: 300px auto;
     position: relative;
     padding-bottom: 0;
     padding: 0 10px 10px 0;
   }
 
   .custom-logo {
-    width: 200px;
+    width: 300px;
     max-width: 100%;
     margin: 0 20px;
     z-index: 1;
