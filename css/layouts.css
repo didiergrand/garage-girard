@@ -114,8 +114,9 @@
 }
 
 .header-image-content .site-description {
-  font-size: 1.2rem;
+  font-size: 2.2rem;
   font-weight: normal;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 /* Overlay optionnel pour améliorer la lisibilité */
@@ -126,7 +127,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
@@ -144,7 +145,7 @@
   }
   
   .header-image-content .site-description {
-    font-size: 1rem;
+    font-size: 1.6rem;
   }
 }
 
