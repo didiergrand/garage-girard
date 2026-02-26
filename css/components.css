@@ -504,3 +504,8 @@
     grid-template-columns: 1fr;
   }
 }
+.card{
+  background-color: var(--background-gray);
+  border-radius: 4px;
+  padding: 28px;
+}
