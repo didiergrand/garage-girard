@@ -46,6 +46,38 @@ function garage_girard_get_default_header_image() {
 }
 
 /**
+ * Get ordered list of header images for carousel.
+ * Current image stays first, then the others.
+ *
+ * @param string $current_image Current header image URL.
+ * @return array
+ */
+function garage_girard_get_header_carousel_images( $current_image = '' ) {
+	$images = array();
+
+	if ( $current_image ) {
+		$images[] = $current_image;
+	}
+
+	$uploaded_headers = get_uploaded_header_images();
+	if ( ! empty( $uploaded_headers ) ) {
+		foreach ( $uploaded_headers as $uploaded_header ) {
+			if ( ! empty( $uploaded_header['url'] ) ) {
+				$images[] = $uploaded_header['url'];
+			}
+		}
+	}
+
+	$images = array_values( array_unique( $images ) );
+
+	if ( empty( $images ) ) {
+		$images[] = garage_girard_get_default_header_image();
+	}
+
+	return $images;
+}
+
+/**
  * Get header image for post/page.
  *
  * @param int $post_id Post ID.
@@ -81,8 +113,14 @@ function garage_girard_get_header_image( $post_id = null ) {
  */
 function garage_girard_display_header_image( $title = '', $show_title = true ) {
 	$image = garage_girard_get_header_image();
+	$carousel_images = array();
+
+	// For posts, use custom header images as a carousel.
+	if ( is_singular( 'post' ) ) {
+		$carousel_images = garage_girard_get_header_carousel_images( $image );
+	}
 	?>
-	<div class="header-image">
+	<div class="header-image" <?php echo count( $carousel_images ) > 1 ? 'data-carousel-images="' . esc_attr( wp_json_encode( $carousel_images ) ) . '"' : ''; ?>>
 		<div class="header-image-bg" style="background-image: url(<?php echo esc_url( $image ); ?>);"></div>
 		<?php if ( $show_title ) : ?>
 			<div class="container">

@@ -13,9 +13,11 @@
  */
 
 get_header();
+$header_image = get_header_image();
+$carousel_images = garage_girard_get_header_carousel_images( $header_image );
 ?>
-<div class="header-image">
-	<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+<div class="header-image" <?php echo count( $carousel_images ) > 1 ? 'data-carousel-images="' . esc_attr( wp_json_encode( $carousel_images ) ) . '"' : ''; ?>>
+	<img src="<?php echo esc_url( $header_image ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" alt="" />
 	<div class="container">
 		<div class="header-image-content">
 			<?php

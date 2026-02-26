@@ -64,6 +64,47 @@
   object-fit: cover;
 }
 
+.header-image img,
+.header-image .header-image-bg {
+  transition: opacity 0.3s ease;
+}
+
+.header-image.is-fading img,
+.header-image.is-fading .header-image-bg {
+  opacity: 0.4;
+}
+
+.header-carousel-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 3;
+}
+
+.header-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.header-carousel-dot:hover,
+.header-carousel-dot:focus-visible {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.15);
+}
+
+.header-carousel-dot.is-active {
+  background: #ffffff;
+}
+
 .header-image-bg {
   position: absolute;
   top: 0;
