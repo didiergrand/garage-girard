@@ -100,7 +100,7 @@
     display: block;
     height: 26px;
     width: 32px;
-    z-index: 3;
+    z-index: 23;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -375,45 +375,132 @@
 }
 
 .gallery-columns-2 {
-  -ms-grid-columns: (1fr)[2];
   grid-template-columns: repeat(2, 1fr);
 }
 
 .gallery-columns-3 {
-  -ms-grid-columns: (1fr)[3];
   grid-template-columns: repeat(3, 1fr);
 }
 
 .gallery-columns-4 {
-  -ms-grid-columns: (1fr)[4];
   grid-template-columns: repeat(4, 1fr);
 }
 
 .gallery-columns-5 {
-  -ms-grid-columns: (1fr)[5];
   grid-template-columns: repeat(5, 1fr);
 }
 
 .gallery-columns-6 {
-  -ms-grid-columns: (1fr)[6];
   grid-template-columns: repeat(6, 1fr);
 }
 
 .gallery-columns-7 {
-  -ms-grid-columns: (1fr)[7];
   grid-template-columns: repeat(7, 1fr);
 }
 
 .gallery-columns-8 {
-  -ms-grid-columns: (1fr)[8];
   grid-template-columns: repeat(8, 1fr);
 }
 
 .gallery-columns-9 {
-  -ms-grid-columns: (1fr)[9];
   grid-template-columns: repeat(9, 1fr);
 }
 
 .gallery-caption {
   display: block;
+}
+
+/* 404
+--------------------------------------------- */
+.error-404 {
+  padding: 40px 0 60px;
+}
+
+.error-404 .container {
+  max-width: 860px;
+}
+
+.error-404-card {
+  background-color: var(--background-color);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+}
+
+.error-404-code {
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 64px;
+  line-height: 1;
+  margin: 0 0 8px;
+  color: var(--primary-color);
+}
+
+.error-404 .page-title {
+  margin: 0 0 8px;
+}
+
+.error-404 .page-content p {
+  margin-bottom: 20px;
+}
+
+.error-404-search {
+  margin-bottom: 24px;
+}
+
+.error-404-search .search-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.error-404-search .search-field {
+  min-height: 42px;
+}
+
+.error-404-search .search-submit {
+  min-height: 42px;
+}
+
+.error-404-links .widget-title {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.error-404-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.error-404-links li {
+  margin: 0;
+}
+
+.error-404-links a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.error-404-links a:hover,
+.error-404-links a:focus {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 640px) {
+  .error-404-card {
+    padding: 20px;
+  }
+
+  .error-404-code {
+    font-size: 52px;
+  }
+
+  .error-404-search .search-form {
+    grid-template-columns: 1fr;
+  }
 }

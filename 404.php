@@ -11,47 +11,39 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-
 		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'garage-girard' ); ?></h1>
-			</header><!-- .page-header -->
+			<div class="container container-small">
+				<div class="error-404-card">
+					<p class="error-404-code">404</p>
+					<header class="page-header">
+						<h1 class="page-title"><?php esc_html_e( 'Page introuvable', 'garage-girard' ); ?></h1>
+					</header><!-- .page-header -->
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'garage-girard' ); ?></p>
+					<div class="page-content">
+						<p><?php esc_html_e( 'La page que vous cherchez n\'existe plus ou a ete deplacee. Vous pouvez faire une recherche ou acceder rapidement aux pages principales.', 'garage-girard' ); ?></p>
 
-					<?php
-					get_search_form();
+						<div class="error-404-search">
+							<?php get_search_form(); ?>
+						</div>
 
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'garage-girard' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$garage_girard_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'garage-girard' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$garage_girard_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
+						<div class="error-404-links">
+							<h2 class="widget-title"><?php esc_html_e( 'Pages utiles', 'garage-girard' ); ?></h2>
+							<ul>
+								<?php
+								wp_list_pages(
+									array(
+										'title_li'    => '',
+										'depth'       => 1,
+										'sort_column' => 'menu_order,post_title',
+										'number'      => 6,
+									)
+								);
+								?>
+							</ul>
+						</div>
+					</div><!-- .page-content -->
+				</div>
+			</div>
 		</section><!-- .error-404 -->
 
 	</main><!-- #main -->
