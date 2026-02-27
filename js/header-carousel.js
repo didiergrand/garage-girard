@@ -2,7 +2,7 @@
 	'use strict';
 
 	var SWITCH_DELAY = 6000;
-	var FADE_DELAY = 300;
+	var FADE_DELAY = 100;
 
 	function applyImage( container, url ) {
 		var bg = container.querySelector( '.header-image-bg' );
