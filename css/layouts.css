@@ -48,6 +48,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: var(--secondary-color);
 }
 .home .header-image{
   min-height: 700px;
