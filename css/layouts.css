@@ -48,7 +48,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--secondary-color);
+  background-color: #000000;
 }
 .home .header-image{
   min-height: 700px;
@@ -72,7 +72,7 @@
 
 .header-image.is-fading img,
 .header-image.is-fading .header-image-bg {
-  opacity: 0.2;
+  opacity: 0;
 }
 
 .header-carousel-dots {
