@@ -2,7 +2,8 @@
 	'use strict';
 
 	var SWITCH_DELAY = 6000;
-	var FADE_DELAY = 500;
+	var FADE_DURATION = 900;
+	var FADE_SWAP_DELAY = FADE_DURATION / 2;
 
 	function applyImage( container, url ) {
 		var bg = container.querySelector( '.header-image-bg' );
@@ -68,16 +69,30 @@
 		var currentIndex = 0;
 		var isPaused = false;
 		var dots = [];
+		var isTransitioning = false;
 
 		function goToIndex( nextIndex ) {
+			if ( isTransitioning || nextIndex === currentIndex ) {
+				return;
+			}
+
+			isTransitioning = true;
 			container.classList.add( 'is-fading' );
 
 			window.setTimeout( function () {
 				applyImage( container, images[ nextIndex ] );
-				container.classList.remove( 'is-fading' );
 				currentIndex = nextIndex;
 				updateDots( dots, currentIndex );
-			}, FADE_DELAY );
+
+				// Let the browser paint the new image at low opacity before fading back in.
+				window.requestAnimationFrame( function () {
+					container.classList.remove( 'is-fading' );
+				} );
+
+				window.setTimeout( function () {
+					isTransitioning = false;
+				}, FADE_SWAP_DELAY );
+			}, FADE_SWAP_DELAY );
 		}
 
 		dots = createDots( container, images, function ( index ) {
@@ -94,7 +109,7 @@
 		} );
 
 		window.setInterval( function () {
-			if ( isPaused ) {
+			if ( isPaused || isTransitioning ) {
 				return;
 			}
 			goToIndex( ( currentIndex + 1 ) % images.length );

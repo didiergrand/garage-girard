@@ -67,12 +67,12 @@
 
 .header-image img,
 .header-image .header-image-bg {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-image.is-fading img,
 .header-image.is-fading .header-image-bg {
-  opacity: 0.4;
+  opacity: 0.2;
 }
 
 .header-carousel-dots {
