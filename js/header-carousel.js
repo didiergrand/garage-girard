@@ -5,17 +5,43 @@
 	var FADE_DURATION = 900;
 	var FADE_SWAP_DELAY = FADE_DURATION / 2;
 
-	function applyImage( container, url ) {
+	function applyImage( container, url, onReady ) {
 		var bg = container.querySelector( '.header-image-bg' );
 		var img = container.querySelector( 'img' );
+		var isDone = false;
+		var fallbackTimer;
+
+		function done() {
+			if ( isDone ) {
+				return;
+			}
+			isDone = true;
+			if ( fallbackTimer ) {
+				window.clearTimeout( fallbackTimer );
+			}
+			if ( typeof onReady === 'function' ) {
+				onReady();
+			}
+		}
 
 		if ( bg ) {
 			bg.style.backgroundImage = 'url("' + url + '")';
 		}
 
 		if ( img ) {
+			if ( img.currentSrc === url || img.src === url ) {
+				done();
+				return;
+			}
+
+			fallbackTimer = window.setTimeout( done, 1500 );
+			img.addEventListener( 'load', done, { once: true } );
+			img.addEventListener( 'error', done, { once: true } );
 			img.src = url;
+			return;
 		}
+
+		done();
 	}
 
 	function updateDots( dots, activeIndex ) {
@@ -80,18 +106,19 @@
 			container.classList.add( 'is-fading' );
 
 			window.setTimeout( function () {
-				applyImage( container, images[ nextIndex ] );
-				currentIndex = nextIndex;
-				updateDots( dots, currentIndex );
+				applyImage( container, images[ nextIndex ], function () {
+					currentIndex = nextIndex;
+					updateDots( dots, currentIndex );
 
-				// Let the browser paint the new image at low opacity before fading back in.
-				window.requestAnimationFrame( function () {
-					container.classList.remove( 'is-fading' );
+					// Let the browser paint the new image at low opacity before fading back in.
+					window.requestAnimationFrame( function () {
+						container.classList.remove( 'is-fading' );
+					} );
+
+					window.setTimeout( function () {
+						isTransitioning = false;
+					}, FADE_SWAP_DELAY );
 				} );
-
-				window.setTimeout( function () {
-					isTransitioning = false;
-				}, FADE_SWAP_DELAY );
 			}, FADE_SWAP_DELAY );
 		}
 
